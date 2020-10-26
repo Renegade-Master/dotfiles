@@ -1,6 +1,6 @@
 ### User Configuration File ###
 
-## Aliases
+## General Aliases ##
 alias sudo="sudo "
 
 alias ccat="highlight -O ansi --force"
@@ -8,4 +8,8 @@ alias diskspace="du -k * | sort -nr | cut -f2 | xargs -d '\n' du -sh | less"
 alias ll="ls -lAg"
 alias tmuxd="tmux new-session \; split-window -h \; send-keys 'htop' C-m \; split-window -v \; send-keys 'update' C-m \;"
 alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgrading ---\n'; sudo apt upgrade -y; printf '\n--- Cleaning Up ---\n'; sudo apt autoremove -y; printf '\n--- Updating ZSH ---\n'; omz update"
+alias whale-quote="docker run --rm renegademaster/docker-whale"
+
+## Development ##
+alias pip-update='python3 ~/.scripts/python/pip-update-all.py'
 
