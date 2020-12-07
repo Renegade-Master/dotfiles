@@ -6,3 +6,5 @@ set shiftwidth=4
 set smarttab
 set number
 
+colorscheme elflord
+
