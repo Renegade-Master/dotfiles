@@ -7,7 +7,7 @@ alias ccat="highlight -O ansi --force"
 alias diskspace="du -k * | sort -nr | cut -f2 | xargs -d '\n' du -sh | less"
 alias ll="ls -lAughF"
 alias tmuxd="tmux new-session \; split-window -h \; send-keys 'htop' C-m \; split-window -v \; send-keys 'update' C-m \;"
-alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgrading ---\n'; sudo apt full-upgrade -y; printf '\n--- Cleaning Up ---\n'; sudo apt autoremove -y; printf '\n--- Updating ZSH ---\n'; omz update"
+alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgrading Packages ---\n'; sudo apt full-upgrade -y; printf '\n--- Upgrading OS ---\n'; sudo apt dist-upgrade -y; printf '\n--- Cleaning Up ---\n'; sudo apt autoremove -y; printf '\n--- Updating ZSH ---\n'; omz update"
 
 ## Development ##
 alias docker-remove-all="docker rm $(docker ps -aq); docker rmi $(docker images -f 'dangling=true' -q)"
