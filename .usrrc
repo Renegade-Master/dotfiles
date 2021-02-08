@@ -14,7 +14,7 @@ alias docker-remove-all="docker rm $(docker ps -aq); docker rmi $(docker images 
 alias git-update="git fetch; git pull origin main; git submodule foreach git fetch; git submodule foreach git pull origin main"
 alias whale-quote="docker run --rm --name whale-say renegademaster/docker-whale"
 alias reset-network="sudo nmcli networking off; sudo nmcli networking on"
-alias datenow="date +%Y%m%dT%H%M%SZ"
+alias datetime="date +%Y%m%dT%H%M%SZ"
 
 ## Maintenance ##
 alias pip-update="python3 ~/.scripts/python/pip-update-all.py"
