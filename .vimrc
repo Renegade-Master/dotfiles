@@ -87,5 +87,5 @@ colorscheme elflord
 
 " Set guide at 72, 80, and 120 characters
 set colorcolumn=72,80,120
-highlight ColorColumn ctermbg=darkgrey guibg=darkgrey
+highlight ColorColumn ctermbg=darkgrey ctermfg=white guibg=darkgrey
 
