@@ -18,3 +18,7 @@ alias datetime="date +%Y%m%dT%H%M%SZ"
 
 ## Maintenance ##
 alias pip-update="python3 ~/.scripts/python/pip-update-all.py"
+
+## Functions ##
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
+
