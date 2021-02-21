@@ -1,7 +1,7 @@
 ### User Configuration File ###
 
 ## General Aliases ##
-alias sudo="sudo "
+alias plz="sudo "
 
 alias ccat="highlight -O ansi --force"
 alias diskspace="du -k * | sort -nr | cut -f2 | xargs -d '\n' du -sh | less"
