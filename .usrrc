@@ -11,7 +11,7 @@ alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgr
 
 ## Development ##
 alias docker-remove-all="docker rm $(docker ps -aq); docker rmi $(docker images -f 'dangling=true' -q)"
-alias git-update="git submodule update --init --recursive; git fetch; git pull origin main; git submodule foreach git fetch; git submodule foreach git pull origin main"
+alias git-update="git submodule update --init --recursive; git fetch; git pull --ff-only; git submodule foreach git fetch; git submodule foreach git pull --ff-only"
 alias whale-quote="docker run --rm --name whale-say renegademaster/docker-whale"
 alias reset-network="sudo nmcli networking off; sudo nmcli networking on"
 alias datetime="date +%Y%m%dT%H%M%SZ"
