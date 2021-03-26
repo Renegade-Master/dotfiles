@@ -72,7 +72,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git)
-plugins=(colorize docker docker-compose git gradle helm jsontools kubectl minikube tmux vscode)
+plugins=(colorize docker docker-compose extract git gradle helm jsontools kubectl minikube mvn systemadmin tmux vscode)
 
 ## Plugin Configuration
 # No plugins requiring configuration are currently installed
