@@ -4,6 +4,9 @@
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
 
+" Set to prevent VIM starting up in REPLACE mode on WSL
+nnoremap <esc>^[ <esc>^[
+
 " Attempt to detect filetype
 if has('filetype')
   filetype indent plugin on
