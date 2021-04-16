@@ -22,3 +22,6 @@ alias pip-update="python3 ~/.scripts/python/pip-update-all.py"
 
 ## Functions ##
 function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
+
+# Remote Kubectl switcher
+function remote-kube() { rm $HOME/.kube/config; ln -s "$HOME/.kube/config-$@" "$HOME/.kube/config"; ssh -fN "kube-cloud$@"; }
