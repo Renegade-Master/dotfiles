@@ -11,16 +11,14 @@ alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgr
 
 ## Development ##
 # The first two parts of this command appear to do the same thing, but with different results somehow
-alias docker-remove-all='docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm; docker rm "$(docker ps -aq)"; docker rmi "$(docker images -f "dangling=true" -q)"'
+alias docker-remove-all="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm; docker rm \"\$(docker ps -aq)\"; docker rmi \"\$(docker images -f 'dangling=true' -q)\""
 alias git-update="git submodule update --init --recursive; git fetch; git pull --ff-only; git submodule foreach git fetch; git submodule foreach git pull --ff-only"
 alias whale-quote="docker run --rm --name whale-say renegademaster/docker-whale"
 alias reset-network="sudo nmcli networking off; sudo nmcli networking on"
 alias datetime="date +%Y%m%dT%H%M%SZ"
 
-## Maintenance ##
-alias pip-update="python3 ~/.scripts/python/pip-update-all.py"
-
 ## Functions ##
+# GitIgnore API
 function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
 
 # Remote Kubectl switcher
