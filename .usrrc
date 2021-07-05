@@ -10,7 +10,6 @@ alias tmuxd="tmux new-session \; split-window -h \; send-keys 'htop' C-m \; spli
 alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgrading Packages ---\n'; sudo apt full-upgrade -y; printf '\n--- Upgrading OS ---\n'; sudo apt dist-upgrade -y; printf '\n--- Cleaning Up ---\n'; sudo apt autoremove -y; printf '\n--- Updating Oh-My-ZSH ---\n'; omz update"
 
 ## Development ##
-# The first two parts of this command appear to do the same thing, but with different results somehow
 alias docker-remove-all="docker stop \$(docker ps -q); docker rm \$(docker ps -aq); docker system prune --volumes"
 alias git-update="git submodule update --init --recursive; git fetch; git pull --ff-only; git submodule foreach git fetch; git submodule foreach git pull --ff-only"
 alias whale-quote="docker run --rm --name whale-say renegademaster/docker-whale"
