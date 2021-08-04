@@ -1,0 +1,8 @@
+### Global Configuration File ###
+
+## Sensitive Files
+.idea/deployment.xml
+.idea/sshConfigs.xml
+.idea/webServers.xml
+.idea/workspace.xml
+                
