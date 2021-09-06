@@ -1,15 +1,21 @@
 [user]
-	name = 
-	email = 
-	signingkey = 
+    name =
+    email =
+    signingkey =
+
+[gpg]
+    program =
+
+[commit]
+    gpgsign = true
 
 # -*- Conf -*-
 [color]
-	branch = auto
-	diff = auto
-	status = auto
-	showbranch = auto
-	ui = true
+    branch = auto
+    diff = auto
+    status = auto
+    showbranch = auto
+    ui = true
 
 # color.branch
 #     A boolean to enable/disable color in the output of git-branch(1). May be set to always, false (or
@@ -65,9 +71,9 @@
 #     The position of the attribute, if any, doesn't matter.
 
 [color "branch"]
-	current = green reverse
-	local = red
-	remote = yellow
+    current = green reverse
+    local = red
+    remote = yellow
 
 # color.diff.<slot>
 #     Use customized color for diff colorization.  <slot> specifies which part of the patch to use the
@@ -77,10 +83,10 @@
 #     in color.branch.<slot>.
 
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
 
 # color.decorate.<slot>
 #     Use customized color for git log --decorate output.  <slot> is one of branch, remoteBranch, tag,
@@ -99,22 +105,22 @@
 #     red). The values of these variables may be specified as in color.branch.<slot>.
 
 [color "status"]
-	added = green
-	changed = yellow
-	untracked = cyan
+    added = green
+    changed = yellow
+    untracked = cyan
 
 [core]
-	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
         excludesfile = ~/.gitignore-rab
 # [apply]
 # 	whitespace = nowarn
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [rerere]
-	enabled = 1
+    enabled = 1
 [log]
-        date = short
-        # date = relative
+    date = short
+    # date = relative
 # [alias]
 # 	st = status -sb
 # 	ci = commit
@@ -128,4 +134,4 @@
 #         pend = cherry -v origin/master
 #	prefab = cherry -v origin/fabrication
 [format]
-        pretty = '%C(yellow)%h%Creset %C(magenta)%cd%Creset %d %s'
+    pretty = '%C(yellow)%h%Creset %C(magenta)%cd%Creset %d %s'

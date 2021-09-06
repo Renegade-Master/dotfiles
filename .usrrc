@@ -13,13 +13,14 @@ alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgr
 ## Development ##
 alias docker-remove-all="docker stop \$(docker ps -q); docker rm \$(docker ps -aq); docker system prune --volumes"
 alias git-update="git submodule update --init --recursive; git fetch; git pull --ff-only; git submodule foreach git fetch; git submodule foreach git pull --ff-only"
+alias git-refresh="git add.; git reset --hard; git fetch -a; git pull --ff-only; git submodule deinit --all --force; git submodule update --init --recursive; git submodule sync"
 alias whale-quote="docker run --rm --name whale-say renegademaster/docker-whale"
 alias reset-network="sudo nmcli networking off; sudo nmcli networking on"
 alias datetime="date +%Y%m%dT%H%M%SZ"
 
 ## Functions ##
 # GitIgnore API
-function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ; }
 
 # Remote Kubectl switcher
 function remote-kube() { rm $HOME/.kube/config; ln -s "$HOME/.kube/config-$@" "$HOME/.kube/config"; ssh -fN "kube-cloud$@"; }
