@@ -1,5 +1,8 @@
 ### User Configuration File ###
 
+## System Overrides ##
+export EDITOR="$(which vim)"
+
 ## General Aliases ##
 alias plz="sudo "
 
