@@ -20,6 +20,7 @@ alias git-refresh="git add.; git reset --hard; git fetch -a; git pull --ff-only;
 alias whale-quote="docker run --rm --name whale-say renegademaster/docker-whale"
 alias reset-network="sudo nmcli networking off; sudo nmcli networking on"
 alias datetime="date +%Y%m%dT%H%M%SZ"
+alias datetimel="date +%Y-%m-%dT%H:%M:%S%:z"
 
 ## Functions ##
 # GitIgnore API
