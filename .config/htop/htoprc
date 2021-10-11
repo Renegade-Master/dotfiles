@@ -24,4 +24,3 @@ left_meters=CPU AllCPUs
 left_meter_modes=2 1
 right_meters=Blank Clock Uptime LoadAverage Tasks Swap Memory
 right_meter_modes=2 2 2 2 2 2 2
-
