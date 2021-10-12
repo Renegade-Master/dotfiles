@@ -1,5 +1,8 @@
 ### User Configuration File ###
 
+## Tools Auto-Complete ##
+autoload -U compinit; compinit
+
 ## System Overrides ##
 export EDITOR="$(which vim)"
 
@@ -12,6 +15,7 @@ alias ll="ls -lAughF"
 alias tmuxd="tmux new-session \; split-window -h \; send-keys 'htop' C-m \; split-window -v \; send-keys 'update' C-m \;"
 alias tmuxr="tmux -S /tmp/socket; chmod 777 /tmp/socket"
 alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgrading Packages ---\n'; sudo apt full-upgrade -y; printf '\n--- Upgrading OS ---\n'; sudo apt dist-upgrade -y; printf '\n--- Cleaning Up ---\n'; sudo apt autoremove -y; printf '\n--- Updating Oh-My-ZSH ---\n'; omz update"
+alias d2u="find . -type f -print0 | xargs -0 -n 1 -P $(getconf _NPROCESSORS_ONLN) dos2unix"
 
 ## Development ##
 alias docker-remove-all="docker stop \$(docker ps -q); docker rm \$(docker ps -aq); docker system prune --volumes"
