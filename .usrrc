@@ -7,6 +7,7 @@ autoload -U compinit; compinit
 export EDITOR="$(which vim)"
 
 ## General Aliases ##
+alias sudo="sudo "
 alias plz="sudo "
 
 alias ccat="highlight -O ansi --force"
@@ -16,11 +17,12 @@ alias tmuxd="tmux new-session \; split-window -h \; send-keys 'htop' C-m \; spli
 alias tmuxr="tmux -S /tmp/socket; chmod 777 /tmp/socket"
 alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgrading Packages ---\n'; sudo apt full-upgrade -y; printf '\n--- Upgrading OS ---\n'; sudo apt dist-upgrade -y; printf '\n--- Cleaning Up ---\n'; sudo apt autoremove -y; printf '\n--- Updating Oh-My-ZSH ---\n'; omz update"
 alias d2u="find . -type f -print0 | xargs -0 -n 1 -P $(getconf _NPROCESSORS_ONLN) dos2unix"
+alias reset-plasma="{ kquitapp5 plasmashell && kstart5 plasmashell } > /dev/null 2>&1 &"
 
 ## Development ##
 alias docker-remove-all="docker stop \$(docker ps -q); docker rm \$(docker ps -aq); docker system prune --volumes"
 alias git-update="git submodule update --init --recursive; git fetch; git pull --ff-only; git submodule foreach git fetch; git submodule foreach git pull --ff-only"
-alias git-refresh="git add.; git reset --hard; git fetch -a; git pull --ff-only; git submodule deinit --all --force; git submodule update --init --recursive; git submodule sync"
+alias git-refresh="git add .; git reset --hard; git fetch -a; git pull --ff-only; git submodule deinit --all --force; git submodule update --init --recursive; git submodule sync"
 alias whale-quote="docker run --rm --name whale-say renegademaster/docker-whale"
 alias reset-network="sudo nmcli networking off; sudo nmcli networking on"
 alias datetime="date +%Y%m%dT%H%M%SZ"
