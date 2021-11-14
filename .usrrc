@@ -4,7 +4,14 @@
 autoload -U compinit; compinit
 
 ## System Overrides ##
+# Select default editor
 export EDITOR="$(which vim)"
+
+# Set correct password entry for SSH Sessions
+export GPG_TTY=$(tty)
+if [[ -n "$SSH_CONNECTION" ]] ;then
+    export PINENTRY_USER_DATA="USE_CURSES=1"
+fi
 
 ## General Aliases ##
 alias sudo="sudo "
