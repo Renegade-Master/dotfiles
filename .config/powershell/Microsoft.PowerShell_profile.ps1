@@ -1,13 +1,19 @@
 ### PowerShell User Configuration File ###
 
 ## Install Modules
-if ( -Not(Get-Module -ListAvailable -Name oh-my-posh)) {
-    Install-Module oh-my-posh -Scope CurrentUser
+$InstallTime = Measure-Command {
+    if ( -Not(Get-Module -ListAvailable -Name oh-my-posh)) {
+        Install-Module oh-my-posh -Scope CurrentUser
+    }
 }
+Write-Host "Install Time: $($InstallTime.Milliseconds) ms"
 
 ## Import and Update Modules
-Import-Module oh-my-posh
-#Update-Module oh-my-posh
+$ImportAndUpdateTime = Measure-Command {
+    Import-Module oh-my-posh
+    #Update-Module oh-my-posh
+}
+Write-Host "Import and Update Time: $($ImportAndUpdateTime.Milliseconds) ms"
 
 ## Theme
 Set-PoshPrompt -Theme fish
