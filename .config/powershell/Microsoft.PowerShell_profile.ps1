@@ -1,14 +1,17 @@
 ### PowerShell User Configuration File ###
 
-## Themes ##
-# If theme is not working on fresh install, ensure to first run
-#  Install-Module oh-my-posh -Scope CurrentUser
+## Install Modules
+if ( -Not(Get-Module -ListAvailable -Name oh-my-posh)) {
+    Install-Module oh-my-posh -Scope CurrentUser
+}
 
+## Import and Update Modules
 Import-Module oh-my-posh
-Update-Module oh-my-posh
+#Update-Module oh-my-posh
+
+## Theme
 Set-PoshPrompt -Theme fish
 Enable-PoshTransientPrompt
-Enable-PoshTooltips
 
 ## Aliases
 Function Show-All { Get-ChildItem -Attributes ReadOnly,Hidden,System,Directory,Archive,Device,Normal,Temporary,SparseFile,ReparsePoint,Compressed,Offline,NotContentIndexed,Encrypted,IntegrityStream,NoScrubData $args }
