@@ -1,19 +1,48 @@
 ### PowerShell User Configuration File ###
 
+## Modules
+
+### Install Modules by adding their names to this list
+[String[]] $Modules = @("oh-my-posh")
+
 ## Install Modules
 $InstallTime = Measure-Command {
-    if ( -Not(Get-Module -ListAvailable -Name oh-my-posh)) {
-        Install-Module oh-my-posh -Scope CurrentUser
+    ForEach ($module in $Modules) {
+        if ( -Not(Get-Module -ListAvailable -Name $module)) {
+            Install-Module $module -Scope CurrentUser
+        }
     }
 }
 Write-Host "Install Time: $($InstallTime.Milliseconds) ms"
 
-## Import and Update Modules
-$ImportAndUpdateTime = Measure-Command {
-    Import-Module oh-my-posh
-    #Update-Module oh-my-posh
+### Import Modules
+$ImportTime = Measure-Command {
+    ForEach ($module in $Modules) {
+        Import-Module $module
+    }
 }
-Write-Host "Import and Update Time: $($ImportAndUpdateTime.Milliseconds) ms"
+Write-Host "Import Time: $($ImportTime.Milliseconds) ms"
+
+### Update Modules
+$UpdateTime = Measure-Command {
+    ForEach ($module in $Modules) {
+        $url = "https://www.powershellgallery.com/packages/$module/?dummy=$(Get-Random)"
+        $request = [System.Net.WebRequest]::Create($url)
+        $request.AllowAutoRedirect=$false
+        $response = $request.GetResponse()
+        $remoteVersion = $response.GetResponseHeader("Location").Split("/")[-1] -as [Version]
+        $localVersion = $(Get-InstalledModule $module).version
+
+        if ($remoteVersion -ne $localVersion) {
+            Write-Host "Updating $module from $localVersion to $remoteVersion"
+            Update-Module $module
+        }
+
+        $response.Close()
+        $response.Dispose()
+    }
+}
+Write-Host "Update Time: $($UpdateTime.Milliseconds) ms"
 
 ## Theme
 Set-PoshPrompt -Theme fish
