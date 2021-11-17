@@ -26,12 +26,18 @@ Write-Host "Import Time: $($ImportTime.Milliseconds) ms"
 ### Update Modules
 $UpdateTime = Measure-Command {
     ForEach ($module in $Modules) {
+        $localVersion = $(Get-InstalledModule $module).version
         $url = "https://www.powershellgallery.com/packages/$module/?dummy=$(Get-Random)"
         $request = [System.Net.WebRequest]::Create($url)
         $request.AllowAutoRedirect=$false
-        $response = $request.GetResponse()
-        $remoteVersion = $response.GetResponseHeader("Location").Split("/")[-1] -as [Version]
-        $localVersion = $(Get-InstalledModule $module).version
+
+        try {
+            $response = $request.GetResponse()
+            $remoteVersion = $response.GetResponseHeader("Location").Split("/")[-1] -as [Version]
+        } catch {
+            Write-Warning "Could not retrieve latest version.`nSkipping update for $module."
+            $remoteVersion = $localVersion
+        }
 
         if ($remoteVersion -ne $localVersion) {
             Write-Host "Updating $module from $localVersion to $remoteVersion"
