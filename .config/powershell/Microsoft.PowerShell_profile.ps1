@@ -1,11 +1,11 @@
-### PowerShell User Configuration File ###
+# PowerShell User Configuration File #
 
 ## Modules
 
 ### Install Modules by adding their names to this list
-[String[]] $Modules = @("oh-my-posh")
+[String[]] $Modules = @("oh-my-posh", "PSWindowsUpdate", "NetworkingDsc")
 
-## Install Modules
+### Install Modules
 $InstallTime = Measure-Command {
     ForEach ($module in $Modules) {
         if ( -Not(Get-Module -ListAvailable -Name $module)) {
