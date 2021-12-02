@@ -3,7 +3,7 @@
 ## Modules
 
 ### Install Modules by adding their names to this list
-[String[]] $Modules = @("oh-my-posh", "PSWindowsUpdate", "NetworkingDsc")
+[String[]] $Modules = @("oh-my-posh", "PSWindowsUpdate", "NetworkingDsc", "Watch")
 
 ### Install Modules
 $InstallTime = Measure-Command {
@@ -24,37 +24,41 @@ $ImportTime = Measure-Command {
 Write-Host "Import Time: $($ImportTime.Milliseconds) ms"
 
 ### Update Modules
-$UpdateTime = Measure-Command {
-    ForEach ($module in $Modules) {
-        $localVersion = $(Get-InstalledModule $module).version
-        $url = "https://www.powershellgallery.com/packages/$module/?dummy=$(Get-Random)"
-        $request = [System.Net.WebRequest]::Create($url)
-        $request.AllowAutoRedirect=$false
+Function Update-All {
+    $UpdateTime = Measure-Command {
+        ForEach ($module in $Modules) {
+            $localVersion = $(Get-InstalledModule $module).version
+            $url = "https://www.powershellgallery.com/packages/$module/?dummy=$(Get-Random)"
+            $request = [System.Net.WebRequest]::Create($url)
+            $request.AllowAutoRedirect=$false
 
-        try {
-            $response = $request.GetResponse()
-            $remoteVersion = $response.GetResponseHeader("Location").Split("/")[-1] -as [Version]
-        } catch {
-            Write-Warning "Could not retrieve latest version.`nSkipping update for $module."
-            $remoteVersion = $localVersion
+            try {
+                $response = $request.GetResponse()
+                $remoteVersion = $response.GetResponseHeader("Location").Split("/")[-1] -as [Version]
+            } catch {
+                Write-Warning "Could not retrieve latest version.`nSkipping update for $module."
+                $remoteVersion = $localVersion
+            }
+
+            if ($remoteVersion -ne $localVersion) {
+                Write-Host "Updating $module from $localVersion to $remoteVersion"
+                Update-Module $module
+            }
+
+            $response.Close()
+            $response.Dispose()
         }
-
-        if ($remoteVersion -ne $localVersion) {
-            Write-Host "Updating $module from $localVersion to $remoteVersion"
-            Update-Module $module
-        }
-
-        $response.Close()
-        $response.Dispose()
     }
+    Write-Host "Update Time: $($UpdateTime.Milliseconds) ms"
 }
-Write-Host "Update Time: $($UpdateTime.Milliseconds) ms"
 
 ## Theme
 Set-PoshPrompt -Theme fish
 Enable-PoshTransientPrompt
 
 ## Aliases
+Set-Alias -Name "update" -Value Update-All
+
 Function Show-All { Get-ChildItem -Attributes ReadOnly,Hidden,System,Directory,Archive,Device,Normal,Temporary,SparseFile,ReparsePoint,Compressed,Offline,NotContentIndexed,Encrypted,IntegrityStream,NoScrubData $args }
 Set-Alias -Name "ll" -Value Show-All
 
