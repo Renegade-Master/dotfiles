@@ -2,31 +2,43 @@
 
 ## Modules
 
+# NOTE
+# If may be helpful to set PSGallery as a Trusted Source:
+#   Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+
 ### Install Modules by adding their names to this list
 [String[]] $Modules = @("oh-my-posh", "PSWindowsUpdate", "NetworkingDsc", "Watch")
 
 ### Install Modules
 $InstallTime = Measure-Command {
-    ForEach ($module in $Modules) {
-        if ( -Not(Get-Module -ListAvailable -Name $module)) {
+    foreach ($module in $Modules) {
+        if ( -Not(Get-Module -ListAvailable -Name $module) ) {
             Install-Module $module -Scope CurrentUser
         }
     }
 }
-Write-Host "Install Time: $($InstallTime.Milliseconds) ms"
+Write-Host "Install Time: $($InstallTime.Minutes)m $($InstallTime.Seconds)s $($InstallTime.Milliseconds)ms"
 
 ### Import Modules
 $ImportTime = Measure-Command {
-    ForEach ($module in $Modules) {
+    foreach ($module in $Modules) {
         Import-Module $module
     }
 }
-Write-Host "Import Time: $($ImportTime.Milliseconds) ms"
+Write-Host "Import Time: $($ImportTime.Minutes)m $($ImportTime.Seconds)s $($ImportTime.Milliseconds)ms"
 
 ### Update Modules
 Function Update-All {
     $UpdateTime = Measure-Command {
-        ForEach ($module in $Modules) {
+        # Update Windows (if a reboot is not scheduled)
+        Write-Host "Updating Windows..."
+        if ($(Get-WURebootStatus).RebootRequired -eq $false) {
+            Install-WindowsUpdate -AcceptAll
+        }
+
+        # Update PowerShell Modules
+        Write-Host "Updating PS Modules..."
+        foreach ($module in $Modules) {
             $localVersion = $(Get-InstalledModule $module).version
             $url = "https://www.powershellgallery.com/packages/$module/?dummy=$(Get-Random)"
             $request = [System.Net.WebRequest]::Create($url)
@@ -42,14 +54,14 @@ Function Update-All {
 
             if ($remoteVersion -ne $localVersion) {
                 Write-Host "Updating $module from $localVersion to $remoteVersion"
-                Update-Module $module
+                Update-Module -AcceptLicense -Name $module
             }
 
             $response.Close()
             $response.Dispose()
         }
     }
-    Write-Host "Update Time: $($UpdateTime.Milliseconds) ms"
+    Write-Host "Update Time: $($UpdateTime.Minutes)m $($UpdateTime.Seconds)s $($UpdateTime.Milliseconds)ms"
 }
 
 ## Theme
