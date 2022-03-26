@@ -54,7 +54,7 @@ Function Update-All {
             }
         }
 
-        if ($PSVersionTable.OS.Contains("Windows")) {
+        if ($PSVersionTable.OS.Contains("raspi")) {
             Write-Host "Updating Raspberry Firmware..."
             Write-Host "`n--- Updating Firmware ---`n"
             sudo fwupdmgr get-updates
