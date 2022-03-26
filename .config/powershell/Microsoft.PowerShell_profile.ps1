@@ -42,17 +42,28 @@ Write-Host "Import Time: $($ImportTime.Minutes)m $($ImportTime.Seconds)s $($Impo
 ### Update Modules
 Function Update-All {
     $UpdateTime = Measure-Command {
-        # Update the OS
         if ($PSVersionTable.OS.Contains("Windows")) {
             # Update Windows (if a reboot is not scheduled)
             if ($(Get-WURebootStatus).RebootRequired -eq $false) {
+                Write-Host "Updating Windows..."
                 Write-Host "`n--- Updating ---"
                 Write-Host "$(Get-WindowsUpdate)"
 
                 Write-Host "`n--- Upgrading Windows ---"
                 Install-WindowsUpdate -AcceptAll
             }
-        } elseif ($PSVersionTable.OS.Contains("Ubuntu") -or $PSVersionTable.OS.Contains("Debian")) {
+        }
+
+        if ($PSVersionTable.OS.Contains("Windows")) {
+            Write-Host "Updating Raspberry Firmware..."
+            Write-Host "`n--- Updating Firmware ---`n"
+            sudo fwupdmgr get-updates
+
+            Write-Host "`n--- Upgrading Firmware ---`n"
+            sudo fwupdmgr upgrade
+        }
+
+        if ($PSVersionTable.OS.Contains("Ubuntu") -or $PSVersionTable.OS.Contains("Debian")) {
             Write-Host "Updating Debian/Ubuntu..."
             Write-Host "`n--- Updating ---"
             sudo apt-get update
@@ -105,11 +116,36 @@ Set-Alias -Name "update" -Value Update-All
 Function Show-All { Get-ChildItem -Attributes ReadOnly,Hidden,System,Directory,Archive,Device,Normal,Temporary,SparseFile,ReparsePoint,Compressed,Offline,NotContentIndexed,Encrypted,IntegrityStream,NoScrubData $args }
 Set-Alias -Name "ll" -Value Show-All
 
+Function Get-CurrentDatetime { Get-Date -UFormat "%Y%m%dT%H%M%SZ" }
+Set-Alias -Name "datetime" -Value Get-CurrentDatetime
+
+### Git Aliases
 Function Update-Repo { git submodule update --init --recursive; git fetch; git pull --ff-only; git submodule foreach git fetch; git submodule foreach git pull --ff-only }
 Set-Alias -Name "git-update" -Value Update-Repo
 
 Function Reset-Repo { git add .; git reset --hard; git fetch -a; git pull --ff-only; git submodule deinit --all --force; git submodule update --init --recursive; git submodule sync }
 Set-Alias -Name "git-refresh" -Value Reset-Repo
 
-Function Get-CurrentDatetime { Get-Date -UFormat "%Y%m%dT%H%M%SZ" }
-Set-Alias -Name "datetime" -Value Get-CurrentDatetime
+Function Get-GitStatus { git status }
+Set-Alias -Name "gst" -Value Get-GitStatus
+
+Function Get-GitDiff { git diff }
+Set-Alias -Name "gd" -Value Get-GitDiff
+
+Function Get-GitDiffVim { git diff -w "$args" | nvim -M - }
+Set-Alias -Name "gdv" -Value Get-GitDiffVim
+
+Function Get-GitAdd { git add }
+Set-Alias -Name "ga" -Value Get-GitAdd
+
+Function Get-GitAddAll { git add --all }
+Set-Alias -Name "gaa" -Value Get-GitAddAll
+
+Function Get-GitLogGraphLong { git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' }
+Set-Alias -Name "glol" -Value Get-GitLogGraphLong
+
+Function Get-GitLogGraphLongAll { git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all }
+Set-Alias -Name "glola" -Value Get-GitLogGraphLongAll
+
+Function Get-GitLogGraphLongStat { git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat }
+Set-Alias -Name "glols" -Value Get-GitLogGraphLongStat
