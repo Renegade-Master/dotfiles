@@ -47,10 +47,14 @@ Function Update-All {
             if ($(Get-WURebootStatus).RebootRequired -eq $false) {
                 Write-Host "Updating Windows..."
                 Write-Host "`n--- Updating ---"
-                Write-Host "$(Get-WindowsUpdate)"
+                Get-WindowsUpdate | Write-Host
+                winget upgrade | Write-Host
 
                 Write-Host "`n--- Upgrading Windows ---"
-                Install-WindowsUpdate -AcceptAll
+                Install-WindowsUpdate -AcceptAll | Write-Host
+
+                Write-Host "`n--- Upgrading Packages ---"
+                winget upgrade -h --all | Write-Host
             }
         }
 
