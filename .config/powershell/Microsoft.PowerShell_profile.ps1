@@ -2,6 +2,14 @@ using namespace System.Collections.Generic
 
 # PowerShell User Configuration File #
 
+## Script Signing ##
+# You will want to execute the following command to allow this script to execute
+# When adding to a new system _do not_ just download to the location. Copy the content
+# of this file to the target file otherwise you will not be allowed to run it.
+#
+# Command:
+#   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
 # Most of these commands are only supported by PowerShell Core
 if ($PSVersionTable.PSEdition -ne "Core") {
     exit
