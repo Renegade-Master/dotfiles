@@ -12,7 +12,8 @@ using namespace System.Collections.Generic
 
 # Most of these commands are only supported by PowerShell Core
 if ($PSVersionTable.PSEdition -ne "Core") {
-    exit
+    Write-Error -Category NotInstalled -RecommendedAction "Install PowerShell Core 7" "PowerShell Core not installed"
+    exit 1
 }
 
 ## Modules
@@ -22,11 +23,17 @@ if ($PSVersionTable.PSEdition -ne "Core") {
 #   Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ### Install Modules by adding their names to this list
-[List[string]] $Modules = [List[string]]@("oh-my-posh", "NetworkingDsc", "Watch")
+[List[string]] $Modules = [List[string]]@("NetworkingDsc", "Watch")
 
 # Add Windows specific modules
 if ($PSVersionTable.OS.Contains("Windows")) {
     $Modules.Add("PSWindowsUpdate")
+
+    # Exit if we are on Windows, but winget is not installed
+    if (-Not (Get-Command winget)) {
+        Write-Error -Category NotInstalled -RecommendedAction "Install winget" "winget is not installed"
+        exit 1
+    }
 }
 
 ### Install Modules
@@ -119,7 +126,7 @@ Function Update-All {
 }
 
 ## Theme
-Set-PoshPrompt -Theme fish
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\fish.omp.json" | Invoke-Expression
 Enable-PoshTransientPrompt
 
 ## Aliases
