@@ -47,33 +47,38 @@
             "unfocusedAppearance": {
                 "experimental.retroTerminalEffect": true
             },
-            "useAcrylic": true
+            "useAcrylic": true,
+            "startingDirectory": "%USERPROFILE%"
         },
         "list": [
             {
-                "commandline": "C:\\usr\\local\\powershell-7\\pwsh.exe",
+                "commandline": "pwsh.exe",
                 "guid": "{43d6aa02-74c4-5660-88c3-f3a448160ee0}",
                 "hidden": false,
                 "icon": "C:\\usr\\local\\powershell-7\\assets\\Square150x150Logo.png",
                 "name": "Windows PowerShell 7",
-                "startingDirectory": "%USERPROFILE%",
-                "tabColor": "#263512"
+                "tabColor": "#007acc"
             },
             {
-                "commandline": "C:\\usr\\local\\powershell-7\\pwsh.exe",
+                "commandline": "pwsh.exe",
                 "elevate": true,
                 "guid": "{30e1d647-dd9f-4f4c-8a90-362599b43acf}",
                 "hidden": false,
                 "icon": "C:\\usr\\local\\powershell-7\\assets\\Square150x150Logo.png",
                 "name": "Windows PowerShell 7 (Admin)",
-                "startingDirectory": "%USERPROFILE%",
-                "tabColor": "#263512"
+                "tabColor": "#b81717"
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": true,
+                "name": "Windows PowerShell"
             },
             {
                 "commandline": "ssh.exe kubuntu",
                 "guid": "{9480528e-7f2b-4ba6-82b8-ab07fdfb3bf1}",
                 "hidden": false,
-                "name": "Kubuntu Dev"
+                "name": "Kubuntu Dev",
+                "tabColor": "#3577bc"
             },
             {
                 "commandline": "ssh.exe rpi",
@@ -92,20 +97,9 @@
                 "name": "Game Server"
             },
             {
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "Windows PowerShell"
-            },
-            {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": true,
                 "name": "Command Prompt"
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
             },
             {
                 "commandline": "ssh.exe vb-proxmox",
@@ -132,14 +126,20 @@
                 "name": "asus_ax88u Router"
             },
             {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": true,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
                 "guid": "{3b5b7db4-1d42-538e-b2be-761ecc9321ee}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Developer Command Prompt for VS 2022 [Preview]",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
                 "guid": "{c023fd38-e03f-506b-8d6d-5cd789161355}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Developer PowerShell for VS 2022 [Preview]",
                 "source": "Windows.Terminal.VisualStudio"
             },

@@ -138,6 +138,9 @@ Set-Alias -Name "ll" -Value Show-All
 Function Get-CurrentDatetime { Get-Date -UFormat "%Y%m%dT%H%M%SZ" }
 Set-Alias -Name "datetime" -Value Get-CurrentDatetime
 
+Function Restart-GpgAgent { gpg-connect-agent reloadagent /bye }
+Set-Alias -Name "restart-gpg" -Value Restart-GpgAgent
+
 ### Git Aliases
 Function Update-Repo { git submodule update --init --recursive; git fetch; git pull --ff-only; git submodule foreach git fetch; git submodule foreach git pull --ff-only }
 Set-Alias -Name "git-update" -Value Update-Repo
