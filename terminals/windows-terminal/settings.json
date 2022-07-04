@@ -1,13 +1,15 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [
+    "actions":
+    [
         {
             "command": "paste",
             "keys": "ctrl+v"
         },
         {
-            "command": {
+            "command":
+            {
                 "action": "copy",
                 "singleLine": false
             },
@@ -18,7 +20,8 @@
             "keys": "ctrl+shift+f"
         },
         {
-            "command": {
+            "command":
+            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -29,14 +32,17 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{43d6aa02-74c4-5660-88c3-f3a448160ee0}",
-    "profiles": {
-        "defaults": {
+    "profiles":
+    {
+        "defaults":
+        {
             "altGrAliasing": true,
             "antialiasingMode": "grayscale",
             "closeOnExit": "graceful",
             "colorScheme": "Campbell",
             "cursorShape": "bar",
-            "font": {
+            "font":
+            {
                 "face": "JetBrains Mono",
                 "size": 11
             },
@@ -44,20 +50,22 @@
             "opacity": 67,
             "padding": "8, 8, 8, 8",
             "snapOnInput": true,
-            "unfocusedAppearance": {
+            "startingDirectory": "%USERPROFILE%",
+            "unfocusedAppearance":
+            {
                 "experimental.retroTerminalEffect": true
             },
-            "useAcrylic": true,
-            "startingDirectory": "%USERPROFILE%"
+            "useAcrylic": true
         },
-        "list": [
+        "list":
+        [
             {
                 "commandline": "pwsh.exe",
                 "guid": "{43d6aa02-74c4-5660-88c3-f3a448160ee0}",
                 "hidden": false,
                 "icon": "C:\\usr\\local\\powershell-7\\assets\\Square150x150Logo.png",
                 "name": "Windows PowerShell 7",
-                "tabColor": "#007acc"
+                "tabColor": "#007ACC"
             },
             {
                 "commandline": "pwsh.exe",
@@ -66,7 +74,7 @@
                 "hidden": false,
                 "icon": "C:\\usr\\local\\powershell-7\\assets\\Square150x150Logo.png",
                 "name": "Windows PowerShell 7 (Admin)",
-                "tabColor": "#b81717"
+                "tabColor": "#B81717"
             },
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -78,12 +86,17 @@
                 "guid": "{9480528e-7f2b-4ba6-82b8-ab07fdfb3bf1}",
                 "hidden": false,
                 "name": "Kubuntu Dev",
-                "tabColor": "#3577bc"
+                "tabColor": "#3577BC"
             },
             {
                 "commandline": "ssh.exe rpi",
                 "guid": "{62309b9b-abb2-45f4-8764-6a75682da959}",
                 "name": "Raspberry Pi"
+            },
+            {
+                "commandline": "ssh.exe oracle-arm",
+                "guid": "{5e4deadc-cbb0-579d-94ee-703670eec212}",
+                "name": "Oracle ARM"
             },
             {
                 "commandline": "ssh.exe oracle-dev",
@@ -169,7 +182,8 @@
             }
         ]
     },
-    "schemes": [
+    "schemes":
+    [
         {
             "background": "#0C0C0C",
             "black": "#0C0C0C",
