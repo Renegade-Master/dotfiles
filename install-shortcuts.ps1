@@ -2,39 +2,39 @@
 
 $Config = @{
     "UserConfig" = @{
-	"Main" = "$($pwd.Path)/.usrrc"
+        "Main" = "$($pwd.Path)/.usrrc"
         "Windows" = "NOT_APPLICABLE"
-	"Linux" = "$($env:HOME)/.usrrc"
+        "Linux" = "$($env:HOME)/.usrrc"
     }
     "Vim" = @{
-	"Main" = "$($pwd.Path)/.vimrc"
+	    "Main" = "$($pwd.Path)/.vimrc"
         "Windows" = "$($env:HOME)/.vimrc"
         "Linux" = "$($env:HOME)/.vimrc"
     }
     "Tmux" = @{
-	"Main" = "$($pwd.Path)/.tmux.conf"
-	"Windows" = "NOT_APPLICABLE"
-	"Linux" = "$($env:HOME)/.tmux.conf"
+	    "Main" = "$($pwd.Path)/.tmux.conf"
+	    "Windows" = "NOT_APPLICABLE"
+	    "Linux" = "$($env:HOME)/.tmux.conf"
 }
 
 Function Link-ConfigurationFile {
     Param (
         [Parameter(Mandatory=$true)]
-	[String]$LinkFile,
+        [String]$LinkFile,
 
-	[Parameter(Mandatory=$true)]
-	[String]$TargetFile,
+        [Parameter(Mandatory=$true)]
+        [String]$TargetFile,
 
-	[Parameter(Mandatory=$false)]
-	[Switch]$DryRun
+        [Parameter(Mandatory=$false)]
+        [Switch]$DryRun
     )
 
     if ($DryRun) {
-	Write-Host "Dry Run TRUE"
-	New-Item -Type SymbolicLink -Path $LinkFile -Target $TargetFile -WhatIf
+        Write-Host "Dry Run TRUE"
+        New-Item -Type SymbolicLink -Path $LinkFile -Target $TargetFile -WhatIf
     } else {
-	Write-Host "Dry Run FALSE"
-	New-Item -Type SymbolicLink -Path $LinkFile -Target $TargetFile -WhatIf
+        Write-Host "Dry Run FALSE"
+        New-Item -Type SymbolicLink -Path $LinkFile -Target $TargetFile -WhatIf
     }
 }
 
@@ -43,11 +43,11 @@ Function Link-ConfigurationFiles {
     $HostOs = "DEFAULT"
     
     if ($PSVersionTable.OS.Contains("Windows")) {
-	$HostOs = "Windows"
+	    $HostOs = "Windows"
     }
 
     if ($PSVersionTable.OS.Contains("Linux")) {
-	$HostOs = "Linux"
+	    $HostOs = "Linux"
     }
 
     if ($HostOs -eq "DEFAULT") {
@@ -70,4 +70,3 @@ Function Link-ConfigurationFiles {
 
 ## Main Method ##
 Link-ConfigurationFiles
-
