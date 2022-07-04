@@ -1,6 +1,16 @@
 #!/usr/bin/env pwsh
 
+Param (
+    [Parameter(Mandatory=$false)]
+    [Switch]$DryRun
+)
+
 $Config = @{
+    "PowerShell" = @{
+        "Main" = "$($pwd.Path)/.config/powershell/Microsoft.PowerShell_profile.ps1"
+        "Windows" = "$Profile"
+        "Linux" = "$Profile"
+    }
     "UserConfig" = @{
         "Main" = "$($pwd.Path)/.usrrc"
         "Windows" = "NOT_APPLICABLE"
@@ -15,6 +25,7 @@ $Config = @{
         "Main" = "$($pwd.Path)/.tmux.conf"
         "Windows" = "NOT_APPLICABLE"
         "Linux" = "$($env:HOME)/.tmux.conf"
+    }
 }
 
 Function Link-ConfigurationFile {
@@ -26,7 +37,7 @@ Function Link-ConfigurationFile {
         [String]$TargetFile,
 
         [Parameter(Mandatory=$false)]
-        [Switch]$DryRun
+        [Boolean]$DryRun
     )
 
     if ($DryRun) {
@@ -40,6 +51,10 @@ Function Link-ConfigurationFile {
 
 
 Function Link-ConfigurationFiles {
+    Param (
+        [Parameter(Mandatory=$false)]
+        [Boolean]$DryRun
+    )
     $HostOs = "DEFAULT"
     
     if ($PSVersionTable.OS.Contains("Windows")) {
@@ -64,9 +79,10 @@ Function Link-ConfigurationFiles {
 
         Write-Host "`nLinking $($Replacement): [$($Config.$Replacement.$HostOs)] to [$($Config.$Replacement.Main)]."
 
-        Link-ConfigurationFile -LinkFile $($Config.$Replacement.$HostOs) -TargetFile $($Config.$Replacement.Main) -DryRun
+        Link-ConfigurationFile -LinkFile $($Config.$Replacement.$HostOs) -TargetFile $($Config.$Replacement.Main) -DryRun $DryRun
     }
 }
 
 ## Main Method ##
-Link-ConfigurationFiles
+Link-ConfigurationFiles -DryRun $DryRun
+
