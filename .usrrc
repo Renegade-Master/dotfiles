@@ -15,31 +15,31 @@ if [[ -n "$SSH_CONNECTION" ]] ;then
 fi
 
 ## General Aliases ##
-alias sudo="sudo "
-alias plz="sudo "
-
-alias ccat="highlight -O ansi --force"
-alias d2u="find . -type f -print0 | xargs -0 -n 1 -P $(getconf _NPROCESSORS_ONLN) dos2unix"
-alias diskspace="du -k * | sort -nr | cut -f2 | xargs -d '\n' du -sh | less"
+alias datetime="date +%Y%m%dT%H%M%SZ"
+alias datetimel="date +%Y-%m-%dT%H:%M:%S%:z"
 alias ll="ls -lAuhF"
+alias plz="sudo "
+alias sudo="sudo "
+alias whale-quote="docker run --rm --name whale-say renegademaster/docker-whale"
+
+## System Administration
+alias d2u="find . -type f -print0 | xargs -0 -n 1 -P \$(getconf _NPROCESSORS_ONLN) dos2unix"
+alias diskspace="du -k * | sort -nr | cut -f2 | xargs -d '\n' du -sh | less"
+alias reset-network="sudo nmcli networking off; sudo nmcli networking on"
 alias reset-plasma="{ kquitapp5 plasmashell && kstart5 plasmashell } > /dev/null 2>&1 &"
 alias tmuxd="tmux new-session \; split-window -h \; send-keys 'htop' C-m \; split-window -v \; send-keys 'update' C-m \;"
 alias tmuxr="tmux -S /tmp/socket; chmod 777 /tmp/socket"
-alias update-firefox="curl -L --output - 'https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-GB' | sudo tar -jx -C /usr/local/share/firefox-dev --strip-components=1"
+alias update-firefox="curl -L --output - 'https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-GB' | sudo tar -jx -C /usr/share/firefox-dev/ --strip-components=1"
 alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgrading Packages ---\n'; sudo apt full-upgrade -y; printf '\n--- Upgrading OS ---\n'; sudo apt dist-upgrade -y; printf '\n--- Cleaning Up ---\n'; sudo apt autoremove -y; printf '\n--- Updating Oh-My-ZSH ---\n'; omz update"
 
 ## Development ##
-alias datetime="date +%Y%m%dT%H%M%SZ"
-alias datetimel="date +%Y-%m-%dT%H:%M:%S%:z"
 alias docker-remove-all="docker stop \$(docker ps -q); docker rm \$(docker ps -aq); docker system prune --volumes"
 alias git-refresh="git add .; git reset --hard; git fetch -a; git pull --ff-only; git submodule deinit --all --force; git submodule update --init --recursive; git submodule sync"
 alias git-update="git submodule update --init --recursive; git fetch; git pull --ff-only; git submodule foreach git fetch; git submodule foreach git pull --ff-only"
-alias reset-network="sudo nmcli networking off; sudo nmcli networking on"
-alias whale-quote="docker run --rm --name whale-say renegademaster/docker-whale"
 
 ## Functions ##
 # GitIgnore API
-function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ; }
+function gi() { curl -sLw n "https://www.toptal.com/developers/gitignore/api/$*" ; }
 
 # Remote Kubectl switcher
-function remote-kube() { rm $HOME/.kube/config; ln -s "$HOME/.kube/config-$@" "$HOME/.kube/config"; ssh -fN "kube-cloud$@"; }
+function remote-kube() { rm "$HOME/.kube/config"; ln -s "$HOME/.kube/config-$*" "$HOME/.kube/config"; ssh -fN "kube-cloud$*"; }

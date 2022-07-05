@@ -11,6 +11,11 @@ $Config = @{
         "Windows" = "$Profile"
         "Linux" = "$Profile"
     }
+    "Tmux" = @{
+        "Main" = "$($pwd.Path)/.tmux.conf"
+        "Windows" = "NOT_APPLICABLE"
+        "Linux" = "$($env:HOME)/.tmux.conf"
+    }
     "UserConfig" = @{
         "Main" = "$($pwd.Path)/.usrrc"
         "Windows" = "NOT_APPLICABLE"
@@ -20,11 +25,6 @@ $Config = @{
         "Main" = "$($pwd.Path)/.vimrc"
         "Windows" = "$($env:HOME)/.vimrc"
         "Linux" = "$($env:HOME)/.vimrc"
-    }
-    "Tmux" = @{
-        "Main" = "$($pwd.Path)/.tmux.conf"
-        "Windows" = "NOT_APPLICABLE"
-        "Linux" = "$($env:HOME)/.tmux.conf"
     }
 }
 
@@ -56,7 +56,7 @@ Function Link-ConfigurationFiles {
         [Boolean]$DryRun
     )
     $HostOs = "DEFAULT"
-    
+
     if ($PSVersionTable.OS.Contains("Windows")) {
         $HostOs = "Windows"
     }
@@ -85,4 +85,3 @@ Function Link-ConfigurationFiles {
 
 ## Main Method ##
 Link-ConfigurationFiles -DryRun $DryRun
-
