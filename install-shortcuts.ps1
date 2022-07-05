@@ -53,6 +53,7 @@ $Config = @{
     }
 }
 
+
 Function Link-ConfigurationFile {
     Param (
         [ Parameter(Mandatory = $true) ]
@@ -68,20 +69,17 @@ Function Link-ConfigurationFile {
         [ Switch ]$Force
     )
 
-    $NoCommit =
-    $ForceOperation = ""
+    Write-Host "Executing command: [ New-Item -Type SymbolicLink -Path $LinkFile -Target $TargetFile ]"
 
-    if ($DryRun) {
-        Write-Host "Dry Run TRUE"
-        $NoCommit = "-WhatIf"
+    if ($DryRun -and $Force) {
+        New-Item -Type SymbolicLink -Path "$LinkFile" -Target "$TargetFile" -Force -WhatIf
+    } elseif ($DryRun) {
+        New-Item -Type SymbolicLink -Path "$LinkFile" -Target "$TargetFile" -WhatIf
+    } elseif ($Force) {
+        New-Item -Type SymbolicLink -Path "$LinkFile" -Target "$TargetFile" -Force
+    } else {
+        New-Item -Type SymbolicLink -Path "$LinkFile" -Target "$TargetFile"
     }
-
-    if ($Force) {
-        $ForceOperation = "-Force"
-    }
-
-    Write-Host "Executing command: [ New-Item -Type SymbolicLink -Path $LinkFile -Target $TargetFile $NoCommit $ForceOperation ]"
-    New-Item -Type SymbolicLink -Path $LinkFile -Target $TargetFile $ForceOperation $NoCommit
 }
 
 
@@ -130,6 +128,7 @@ Function Link-ConfigurationFiles {
         }
     }
 }
+
 
 ## Main Method ##
 Link-ConfigurationFiles -DryRun $DryRun
