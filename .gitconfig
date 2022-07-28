@@ -1,10 +1,10 @@
 [user]
-    name =
-    email =
-    signingkey =
+    name = Renegade-Master
+    email = renegade.master.dev@protonmail.com
+    signingkey = 0A75CF72E13979E3583260A3383DB8EE64843E25
 
 [gpg]
-    program =
+    #program =
 
 [commit]
     gpgsign = true
