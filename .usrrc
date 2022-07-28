@@ -5,7 +5,8 @@ autoload -U compinit; compinit
 
 ## System Overrides ##
 # Select default editor
-export EDITOR="$(which vim)"
+export EDITOR="$(which nvim || which vim || which vi)"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Set correct password entry for SSH Sessions
 export GPG_TTY=$(tty)
@@ -20,11 +21,11 @@ alias plz="sudo "
 alias ccat="highlight -O ansi --force"
 alias d2u="find . -type f -print0 | xargs -0 -n 1 -P $(getconf _NPROCESSORS_ONLN) dos2unix"
 alias diskspace="du -k * | sort -nr | cut -f2 | xargs -d '\n' du -sh | less"
-alias ll="ls -lAughF"
+alias ll="ls -lAuhF"
 alias reset-plasma="{ kquitapp5 plasmashell && kstart5 plasmashell } > /dev/null 2>&1 &"
 alias tmuxd="tmux new-session \; split-window -h \; send-keys 'htop' C-m \; split-window -v \; send-keys 'update' C-m \;"
 alias tmuxr="tmux -S /tmp/socket; chmod 777 /tmp/socket"
-alias update-firefox="curl -L --output - 'https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-GB' | sudo tar -jx -C /usr/lib/firefox-dev --strip-components=1"
+alias update-firefox="curl -L --output - 'https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-GB' | sudo tar -jx -C /usr/local/share/firefox-dev --strip-components=1"
 alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgrading Packages ---\n'; sudo apt full-upgrade -y; printf '\n--- Upgrading OS ---\n'; sudo apt dist-upgrade -y; printf '\n--- Cleaning Up ---\n'; sudo apt autoremove -y; printf '\n--- Updating Oh-My-ZSH ---\n'; omz update"
 
 ## Development ##
