@@ -63,13 +63,13 @@ Function Update-All {
                 Write-Host "Updating Windows..."
                 Write-Host "`n--- Updating ---"
                 Get-WindowsUpdate | Write-Host
-                winget upgrade | Write-Host
+                winget upgrade --include-unknown | Write-Host
 
                 Write-Host "`n--- Upgrading Windows ---"
                 Install-WindowsUpdate -AcceptAll | Write-Host
 
                 Write-Host "`n--- Upgrading Packages ---"
-                winget upgrade -h --all | Write-Host
+                winget upgrade --include-unknown -h --all | Write-Host
             }
         }
 
