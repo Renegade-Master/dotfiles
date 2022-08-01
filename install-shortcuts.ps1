@@ -116,7 +116,7 @@ Function Link-ConfigurationFiles {
             -LinkFile $( $Config.$Replacement.$HostOs ) `
             -TargetFile $( $Config.$Replacement.Main ) `
             -DryRun $DryRun `
-            -ErrorAction SilentlyContinue -ErrorVariable +ProcessError
+            -ErrorAction SilentlyContinue -ErrorVariable ProcessError
 
         if ($ProcessError) {
             Write-Error "Error: $ProcessError"
