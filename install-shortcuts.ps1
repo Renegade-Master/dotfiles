@@ -1,11 +1,29 @@
-#!/usr/bin/env pwsh
+<#
+.SYNOPSIS
+  This script is used to create SymbolicLinks from the configuration files in this repository to their OS respective locations.
 
+.DESCRIPTION
+  By creating SymbolicLinks from the configuration files in this repository to their OS respective locations, the expected development environment is created.
+
+.LINK
+  https://github.com/Renegade-Master/dotfiles
+
+.PARAMETER DryRun
+  If present, the script will not actually create the SymbolicLinks.
+  This is useful for viewing the potentially affected files.
+
+.EXAMPLE
+  $ ./install-shortcuts.ps1
+
+.EXAMPLE
+  $ ./install-shortcuts.ps1 -DryRun
+#>
 Param (
     [ Parameter(Mandatory = $false) ]
     [ Switch ]$DryRun
 )
 
-$Config = @{
+[ Hashtable ]$Config = @{
     "GitConfig" = @{
         "Main" = "$( $pwd.Path )/.gitconfig"
         "Windows" = "$( $env:USERPROFILE )\\.gitconfig"
@@ -54,7 +72,29 @@ $Config = @{
 }
 
 
-Function Link-ConfigurationFile {
+<#
+.SYNOPSIS
+  Take a Target and Source file, and create a SymbolicLink from the Source to the Target.
+
+.PARAMETER LinkFile
+  The Source file to link the Target reference to.
+
+.PARAMETER TargetFile
+  The Target file that the Reference will link to.
+
+.PARAMETER DryRun
+  When set to true, will add '-WhatIf' to New-Item command.
+
+.PARAMETER Force
+  When set to true, will add '-Force' to New-Item command.
+
+.EXAMPLE
+  New-ConfigurationFile -LinkFile "$( $env:USERPROFILE )\\.gitconfig" -TargetFile "$( $pwd.Path )/.gitconfig"
+
+.EXAMPLE
+  New-ConfigurationFile -LinkFile "$( $env:USERPROFILE )\\.gitconfig" -TargetFile "$( $pwd.Path )/.gitconfig" -DryRun $true
+#>
+Function New-ConfigurationFile {
     Param (
         [ Parameter(Mandatory = $true) ]
         [ String ]$LinkFile,
@@ -83,7 +123,7 @@ Function Link-ConfigurationFile {
 }
 
 
-Function Link-ConfigurationFiles {
+Function New-ConfigurationFiles {
     Param (
         [ Parameter(Mandatory = $false) ]
         [ Boolean ]$DryRun
@@ -112,7 +152,7 @@ Function Link-ConfigurationFiles {
 
         Write-Host "`nLinking $( $Replacement ): [$( $Config.$Replacement.$HostOs )] to [$( $Config.$Replacement.Main )]."
 
-        Link-ConfigurationFile `
+        New-ConfigurationFile `
             -LinkFile $( $Config.$Replacement.$HostOs ) `
             -TargetFile $( $Config.$Replacement.Main ) `
             -DryRun $DryRun `
@@ -124,7 +164,7 @@ Function Link-ConfigurationFiles {
             $continue = Read-Host "That didn't appear to work. Would you like to attempt to force the operation? Y/N"
 
             if ($continue -eq "Y" -or $continue -eq "y") {
-                Link-ConfigurationFile `
+                New-ConfigurationFile `
                     -LinkFile $( $Config.$Replacement.$HostOs ) `
                     -TargetFile $( $Config.$Replacement.Main ) `
                     -DryRun $DryRun `
@@ -136,4 +176,4 @@ Function Link-ConfigurationFiles {
 
 
 ## Main Method ##
-Link-ConfigurationFiles -DryRun $DryRun
+New-ConfigurationFiles -DryRun $DryRun
