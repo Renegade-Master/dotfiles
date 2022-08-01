@@ -151,7 +151,7 @@ Set-Alias -Name "git-refresh" -Value Reset-Repo
 Function Get-GitStatus { git status }
 Set-Alias -Name "gst" -Value Get-GitStatus
 
-Function Get-GitDiff { git diff }
+Function Get-GitDiff { git diff "$args" }
 Set-Alias -Name "gd" -Value Get-GitDiff
 
 Function Get-GitDiffVim { git diff -w "$args" | nvim -M - }
