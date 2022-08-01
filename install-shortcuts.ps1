@@ -8,12 +8,12 @@ Param (
 $Config = @{
     "GitConfig" = @{
         "Main" = "$( $pwd.Path )/.gitconfig"
-        "Windows" = "$( $env:HOME )\\.gitconfig"
+        "Windows" = "$( $env:USERPROFILE )\\.gitconfig"
         "Linux" = "$( $env:HOME )/.gitconfig"
     }
     "GitIgnore" = @{
         "Main" = "$( $pwd.Path )/.gitignore"
-        "Windows" = "$( $env:HOME )/.gitignore"
+        "Windows" = "$( $env:USERPROFILE )\\.gitignore"
         "Linux" = "$( $env:HOME )/.gitignore"
     }
     "HTOP" = @{
@@ -43,7 +43,7 @@ $Config = @{
     }
     "Vim" = @{
         "Main" = "$( $pwd.Path )/.vimrc"
-        "Windows" = "$( $env:HOME )\\.vimrc"
+        "Windows" = "$( $env:USERPROFILE )\\.vimrc"
         "Linux" = "$( $env:HOME )/.vimrc"
     }
     "WindowsTerminal" = @{
@@ -112,18 +112,23 @@ Function Link-ConfigurationFiles {
 
         Write-Host "`nLinking $( $Replacement ): [$( $Config.$Replacement.$HostOs )] to [$( $Config.$Replacement.Main )]."
 
-        try {
-            Link-ConfigurationFile -LinkFile $( $Config.$Replacement.$HostOs ) -TargetFile $( $Config.$Replacement.Main ) -DryRun $DryRun
-        }
-        catch [ Exception ] {
-            $emessage = $_
-            Write-Host "Error: $($Error[0].Exception.GetType().FullName)"
-            Write-Host "E: $emessage"
+        Link-ConfigurationFile `
+            -LinkFile $( $Config.$Replacement.$HostOs ) `
+            -TargetFile $( $Config.$Replacement.Main ) `
+            -DryRun $DryRun `
+            -ErrorAction SilentlyContinue -ErrorVariable +ProcessError
+
+        if ($ProcessError) {
+            Write-Error "Error: $ProcessError"
 
             $continue = Read-Host "That didn't appear to work. Would you like to attempt to force the operation? Y/N"
 
             if ($continue -eq "Y" -or $continue -eq "y") {
-                Link-ConfigurationFile -LinkFile $( $Config.$Replacement.$HostOs ) -TargetFile $( $Config.$Replacement.Main ) -DryRun $DryRun -Force
+                Link-ConfigurationFile `
+                    -LinkFile $( $Config.$Replacement.$HostOs ) `
+                    -TargetFile $( $Config.$Replacement.Main ) `
+                    -DryRun $DryRun `
+                    -Force
             }
         }
     }
