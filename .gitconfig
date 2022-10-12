@@ -7,7 +7,12 @@
     #program =
 
 [commit]
-    gpgsign = true
+    gpgsign = false
+
+[core]
+    whitespace=fix
+    excludesfile = ~/.gitignore-rab
+    autocrlf = true
 
 # -*- Conf -*-
 [color]
@@ -109,11 +114,9 @@
     changed = yellow
     untracked = cyan
 
-[core]
-    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-        excludesfile = ~/.gitignore-rab
 # [apply]
 # 	whitespace = nowarn
+
 [branch]
     autosetuprebase = always
 [rerere]

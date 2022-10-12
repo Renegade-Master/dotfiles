@@ -69,6 +69,11 @@ Param (
         "Windows" = "$( $env:LocalAppData )\\Packages\\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\\LocalState\\settings.json"
         "Linux" = "NOT_APPLICABLE"
     }
+    "Fleet" = @{
+        "Main" = "$( $pwd.Path )/editors/fleet/settings.json"
+        "Windows" = "$( $env:USERPROFILE )\\.fleet\\settings.json"
+        "Linux" = "NOT_APPLICABLE"
+    }
 }
 
 
