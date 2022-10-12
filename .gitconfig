@@ -10,9 +10,12 @@
     gpgsign = false
 
 [core]
-    whitespace=fix
+    whitespace=trailing-space,space-before-tab
     excludesfile = ~/.gitignore-rab
-    autocrlf = true
+    autocrlf = input
+
+[apply]
+    whitespace = fix
 
 # -*- Conf -*-
 [color]
@@ -113,9 +116,6 @@
     added = green
     changed = yellow
     untracked = cyan
-
-# [apply]
-# 	whitespace = nowarn
 
 [branch]
     autosetuprebase = always
