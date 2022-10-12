@@ -1,0 +1,16 @@
+{
+    "theme": "sync-with-os",
+    "showShortcuts": true,
+    "editor.guides": [72, 80, 120],
+    "launchTerminalOnOpen": true,
+    "keymap": "pc-ij",
+    "editor.renderWhitespace": "Tabs",
+    "terminal.fontFamily": "JetBrains Mono",
+    "terminal.profiles": [{
+        "name": "PowerShell 7",
+        "program": "pwsh.exe",
+    },
+    ],
+    "git.revert.confirm": true,
+    
+}
