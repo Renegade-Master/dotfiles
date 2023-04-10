@@ -72,7 +72,7 @@ Param (
     "Fleet" = @{
         "Main" = "$( $pwd.Path )/editors/fleet/settings.json"
         "Windows" = "$( $env:USERPROFILE )\\.fleet\\settings.json"
-        "Linux" = "NOT_APPLICABLE"
+        "Linux" = "$( $env:HOME )/.fleet/settings.json"
     }
 }
 

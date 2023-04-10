@@ -138,3 +138,5 @@
 #	prefab = cherry -v origin/fabrication
 [format]
     pretty = '%C(yellow)%h%Creset %C(magenta)%cd%Creset %d %s'
+[credential "helperselector"]
+	selected = manager-core
