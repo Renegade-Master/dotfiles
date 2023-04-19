@@ -24,6 +24,11 @@ Param (
 )
 
 [ Hashtable ]$Config = @{
+    "Fleet" = @{
+        "Main" = "$( $pwd.Path )/editors/fleet/settings.json"
+        "Windows" = "$( $env:USERPROFILE )\\.fleet\\settings.json"
+        "Linux" = "$( $env:HOME )/.fleet/settings.json"
+    }
     "GitConfig" = @{
         "Main" = "$( $pwd.Path )/.gitconfig"
         "Windows" = "$( $env:USERPROFILE )\\.gitconfig"
@@ -69,10 +74,10 @@ Param (
         "Windows" = "$( $env:LocalAppData )\\Packages\\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\\LocalState\\settings.json"
         "Linux" = "NOT_APPLICABLE"
     }
-    "Fleet" = @{
-        "Main" = "$( $pwd.Path )/editors/fleet/settings.json"
-        "Windows" = "$( $env:USERPROFILE )\\.fleet\\settings.json"
-        "Linux" = "$( $env:HOME )/.fleet/settings.json"
+    "Winget" = @{
+        "Main" = "$( $pwd.Path )/package-managers/winget/settings.json"
+        "Windows" = "$( $env:LocalAppData )\\Packages\\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\\LocalState\\settings.json"
+        "Linux" = "NOT_APPLICABLE"
     }
 }
 
