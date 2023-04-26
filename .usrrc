@@ -30,7 +30,6 @@ alias reset-plasma="{ kquitapp5 plasmashell && kstart5 plasmashell } > /dev/null
 alias tmuxd="tmux new-session \; split-window -h \; send-keys 'htop' C-m \; split-window -v \; send-keys 'update' C-m \;"
 alias tmuxr="tmux -S /tmp/socket; chmod 777 /tmp/socket"
 alias update-firefox="curl -L --output - 'https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-GB' | sudo tar -jx -C /usr/share/firefox-dev/ --strip-components=1"
-alias update="printf '\n--- Updating ---\n'; sudo apt update; printf '\n--- Upgrading Packages ---\n'; sudo apt full-upgrade -y; printf '\n--- Upgrading OS ---\n'; sudo apt dist-upgrade -y; printf '\n--- Cleaning Up ---\n'; sudo apt autoremove -y; printf '\n--- Updating Oh-My-ZSH ---\n'; omz update"
 
 ## Development ##
 alias docker-remove-all="docker stop \$(docker ps -q); docker rm \$(docker ps -aq); docker system prune --volumes"
@@ -40,6 +39,24 @@ alias git-update="git submodule update --init --recursive; git fetch; git pull -
 ## Functions ##
 # GitIgnore API
 function gi() { curl -sLw n "https://www.toptal.com/developers/gitignore/api/$*" ; }
+
+# Update any package manager
+function update() {
+    printf '\n--- Updating ---\n'
+    sudo apt update
+
+    printf '\n--- Upgrading Packages ---\n'
+    sudo apt full-upgrade -y
+
+    printf '\n--- Upgrading OS ---\n'
+    sudo apt dist-upgrade -y
+
+    printf '\n--- Cleaning Up ---\n'
+    sudo apt autoremove -y
+
+    printf '\n--- Updating Oh-My-ZSH ---\n'
+    omz update
+}
 
 # Remote Kubectl switcher
 function remote-kube() { rm "$HOME/.kube/config"; ln -s "$HOME/.kube/config-$*" "$HOME/.kube/config"; ssh -fN "kube-cloud$*"; }
