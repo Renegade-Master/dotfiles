@@ -1,6 +1,6 @@
 [user]
     name = Renegade-Master
-    email = renegade.master.dev@protonmail.com
+    email = renegade@renegade-master.com
     signingkey = 0A75CF72E13979E3583260A3383DB8EE64843E25
 
 [gpg]
@@ -10,9 +10,10 @@
     gpgsign = false
 
 [core]
-    whitespace=trailing-space,space-before-tab
+    whitespace = trailing-space,space-before-tab
     excludesfile = ~/.gitignore-rab
     autocrlf = input
+    editor = nvim
 
 [apply]
     whitespace = fix

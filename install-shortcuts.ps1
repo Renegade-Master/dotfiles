@@ -45,9 +45,9 @@ Param (
         "Linux" = "$( $env:HOME )/.config/htop/htoprc"
     }
     "NVIM" = @{
-        "Main" = "$( $pwd.Path )/.config/nvim/init.vim"
-        "Windows" = "$( $env:LocalAppData )\\nvim\\init.vim"
-        "Linux" = "$( $env:HOME )/.config/nvim/init.vim"
+        "Main" = "$( $pwd.Path )/editors/nvim/"
+        "Windows" = "$( $env:LocalAppData )\\nvim\\"
+        "Linux" = "$( $env:HOME )/.config/nvim/"
     }
     "PowerShell" = @{
         "Main" = "$( $pwd.Path )/.config/powershell/Microsoft.PowerShell_profile.ps1"
