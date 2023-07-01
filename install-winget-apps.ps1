@@ -43,6 +43,7 @@ Param ()
     @{ Name = "Proton Mail Bridge"; Id = "ProtonTechnologies.ProtonMailBridge", Interactive = $False, IgnoreHash = $False }
     @{ Name = "Ubisoft Connect"; Id = "Ubisoft.Connect", Interactive = $False, IgnoreHash = $True }
     @{ Name = "Steam"; Id = "Valve.Steam", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Explorer Patcher [Pre-Release]"; Id = "valinet.ExplorerPatcher.Prerelease", Interactive = $False, IgnoreHash = $False }
     @{ Name = "Voidtools Everything"; Id = "voidtools.Everything.Lite", Interactive = $False, IgnoreHash = $False }
     @{ Name = "VSCodium"; Id = "VSCodium.VSCodium", Interactive = $False, IgnoreHash = $False }
     @{ Name = "Yubico Authenticator"; Id = "Yubico.Authenticator", Interactive = $False, IgnoreHash = $False }
