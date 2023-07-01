@@ -15,10 +15,37 @@
 Param ()
 
 [ Array ]$Applications = @(
-    @{ Name = "Git"; Id = "Git.Git" }
-    @{ Name = "GitHub CLI"; Id = "GitHub.cli" }
-    @{ Name = "Windows PowerToys"; Id = "Microsoft.PowerToys" }
-    @{ Name = "Windows Terminal"; Id = "Microsoft.WindowsTerminal" }
+    @{ Name = "7-Zip"; Id = "7zip.7zip", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "DisplayFusion"; Id = "BinaryFortress.DisplayFusion", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "JetBrains Mono Nerd Font"; Id = "DEVCOM.JetBrainsMonoNerdFont", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Discord [Canary]"; Id = "Discord.Discord.Canary", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Discord [PTB]"; Id = "Discord.Discord.PTB", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "EA Desktop"; Id = "ElectronicArts.EADesktop", Interactive = $False, IgnoreHash = $True }
+    @{ Name = "EpicGames Launcher"; Id = "EpicGames.EpicGamesLauncher", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Git [Minimal]"; Id = "Git.MinGit", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "GitHub CLI"; Id = "GitHub.cli", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "GnuPG Gpg4win"; Id = "GnuPG.Gpg4win", Interactive = $True, IgnoreHash = $False }
+    @{ Name = "GOG Galaxy"; Id = "GOG.Galaxy", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Google.Drive"; Id = "Google.Drive", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "OhMyPosh"; Id = "JanDeDobbeleer.OhMyPosh", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Jellyfin Media Player"; Id = "Jellyfin.JellyfinMediaPlayer", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "JetBrains Toolbox"; Id = "JetBrains.Toolbox", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "KeePassXC"; Id = "KeePassXCTeam.KeePassXC", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Microsoft PowerShell 7"; Id = "Microsoft.PowerShell", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Windows PowerToys"; Id = "Microsoft.PowerToys", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Windows Terminal"; Id = "Microsoft.WindowsTerminal", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Firefox Developer Edition"; Id = "Mozilla.Firefox.DeveloperEdition", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Thunderbird.Beta"; Id = "Mozilla.Thunderbird.Beta", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Neovim"; Id = "Neovim.Neovim", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Nvidia GeForce Experience"; Id = "Nvidia.GeForceExperience", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "VirtualBox"; Id = "Oracle.VirtualBox", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "foobar2000"; Id = "PeterPawlowski.foobar2000", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Proton Mail Bridge"; Id = "ProtonTechnologies.ProtonMailBridge", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Ubisoft Connect"; Id = "Ubisoft.Connect", Interactive = $False, IgnoreHash = $True }
+    @{ Name = "Steam"; Id = "Valve.Steam", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Voidtools Everything"; Id = "voidtools.Everything.Lite", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "VSCodium"; Id = "VSCodium.VSCodium", Interactive = $False, IgnoreHash = $False }
+    @{ Name = "Yubico Authenticator"; Id = "Yubico.Authenticator", Interactive = $False, IgnoreHash = $False }
 )
 
 
@@ -43,7 +70,7 @@ Function Install-Applications {
         If (Test-AppInstalled -AppName $App.Id) {
             Write-host "Installing:" $App.Name
 
-            If ($null -ne $App.source) {
+            If ($Null -ne $App.source) {
                 #winget install --exact --silent $App.Id --source $App.Source
             } Else {
                 #winget install --exact --silent $App.Id

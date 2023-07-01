@@ -1,5 +1,8 @@
 ### Global Configuration File ###
 
+## Generated Files ##
+editors/nvim/plugin/packer_compiled.lua
+
 ## Sensitive Files ##
 .idea/deployment.xml
 .idea/sshConfigs.xml
