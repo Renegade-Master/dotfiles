@@ -44,7 +44,7 @@ Param ()
     @{ Name = "Sysinternals Suite"; Id = "9P7KNL5RWT25"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Thunderbird.Beta"; Id = "Mozilla.Thunderbird.Beta"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Ubisoft Connect"; Id = "Ubisoft.Connect"; Interactive = $False; IgnoreHash = $True }
-    @{ Name = "VirtualBox"; Id = "Oracle.VirtualBox"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "VMWare Workstation Pro"; Id = "VMware.WorkstationPro"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Voidtools Everything"; Id = "voidtools.Everything.Lite"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "VSCodium"; Id = "VSCodium.VSCodium"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "WinDirStat"; Id = "WinDirStat.WinDirStat"; Interactive = $False; IgnoreHash = $False }
