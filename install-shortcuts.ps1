@@ -44,6 +44,16 @@ Param (
         "Windows" = "NOT_APPLICABLE"
         "Linux" = "$( $env:HOME )/.config/htop/htoprc"
     }
+    "NuShell CONFIG" = @{
+        "Main" = "$( $pwd.Path )/.config/nushell/config.nu"
+        "Windows" = "$( $env:AppData )\\nushell\\config.nu"
+        "Linux" = "NOT_APPLICABLE"
+    }
+    "NuShell ENV" = @{
+        "Main" = "$( $pwd.Path )/.config/nushell/env.nu"
+        "Windows" = "$( $env:AppData )\\nushell\\env.nu"
+        "Linux" = "NOT_APPLICABLE"
+    }
     "NVIM" = @{
         "Main" = "$( $pwd.Path )/editors/nvim/"
         "Windows" = "$( $env:LocalAppData )\\nvim\\"

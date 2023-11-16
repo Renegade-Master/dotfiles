@@ -32,11 +32,13 @@ Param ()
     @{ Name = "Jellyfin Media Player"; Id = "Jellyfin.JellyfinMediaPlayer"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "JetBrains Mono Nerd Font"; Id = "DEVCOM.JetBrainsMonoNerdFont"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "JetBrains Toolbox"; Id = "JetBrains.Toolbox"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "JQ"; Id = "jqlang.jq"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "KeePassXC"; Id = "KeePassXCTeam.KeePassXC"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Microsoft PowerShell 7"; Id = "Microsoft.PowerShell"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Neovim"; Id = "Neovim.Neovim"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Nvidia GeForce Experience"; Id = "Nvidia.GeForceExperience"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "OhMyPosh"; Id = "JanDeDobbeleer.OhMyPosh"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "Ookla Speedtest CLI"; Id = "Ookla.Speedtest.CLI"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "PotPlayer"; Id = "Daum.PotPlayer"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Proton Mail Bridge"; Id = "ProtonTechnologies.ProtonMailBridge"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "qBittorrent"; Id = "qBittorrent.qBittorrent"; Interactive = $False; IgnoreHash = $False }

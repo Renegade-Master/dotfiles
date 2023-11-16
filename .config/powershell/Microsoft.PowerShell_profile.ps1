@@ -171,3 +171,9 @@ Set-Alias -Name "glola" -Value Get-GitLogGraphLongAll
 
 Function Get-GitLogGraphLongStat { git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat }
 Set-Alias -Name "glols" -Value Get-GitLogGraphLongStat
+
+Function ConvertTo-Base64 { [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("$args")) }
+Set-Alias -Name "pstbase64" -Value ConvertTo-Base64
+
+Function ConvertFrom-Base64 { [Text.Encoding]::Utf8.GetString([Convert]::FromBase64String("$args")) }
+Set-Alias -Name "psfbase64" -Value ConvertFrom-Base64
