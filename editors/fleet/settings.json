@@ -21,5 +21,47 @@
         }
     ],
     "theme": "sync-with-os",
-    "trimTrailingSpacesOnSave": true
+    "trimTrailingSpacesOnSave": true,
+    "plugins": [
+        {
+            "type": "remove",
+            "pluginName": "fleet.aiCompletion"
+        },
+        {
+            "type": "remove",
+            "pluginName": "fleet.go.ai"
+        },
+        {
+            "type": "remove",
+            "pluginName": "fleet.java.ai"
+        },
+        {
+            "type": "remove",
+            "pluginName": "fleet.javascript.ai"
+        },
+        {
+            "type": "remove",
+            "pluginName": "fleet.kotlin.ai"
+        },
+        {
+            "type": "remove",
+            "pluginName": "fleet.python.ai"
+        },
+        {
+            "type": "remove",
+            "pluginName": "fleet.rust.ai"
+        },
+        {
+            "type": "remove",
+            "pluginName": "fleet.ai"
+        },
+        {
+            "type": "remove",
+            "pluginName": "fleet.keymaps.VSCode"
+        },
+        {
+            "type": "remove",
+            "pluginName": "fleet.wsl"
+        }
+    ]
 }

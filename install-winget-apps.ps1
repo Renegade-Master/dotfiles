@@ -33,6 +33,7 @@ Param ()
     @{ Name = "JetBrains Mono Nerd Font"; Id = "DEVCOM.JetBrainsMonoNerdFont"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "JetBrains Toolbox"; Id = "JetBrains.Toolbox"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "JQ"; Id = "jqlang.jq"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "Link Shell Extension"; Id = "HermannSchinagl.LinkShellExtension"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "KeePassXC"; Id = "KeePassXCTeam.KeePassXC"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Microsoft PowerShell 7"; Id = "Microsoft.PowerShell"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Neovim"; Id = "Neovim.Neovim"; Interactive = $False; IgnoreHash = $False }
@@ -98,7 +99,7 @@ Function Install-Applications {
             Write-host "Installing: $($App.Name)"
             #Write-Host "Running: winget install $($Flags) --id=$($App.Id)"
 
-            winget install $Flags --id=$App.Id
+            winget install $($Flags) --id=$($App.Id)
         } Else {
             Write-host "Skipping Install of $($App.Name) as it is already installed"
             #Write-Host "Would have Run: winget install $($Flags) --id=$($App.Id)"
