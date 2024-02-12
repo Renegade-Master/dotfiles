@@ -50,9 +50,9 @@ Param ()
     @{ Name = "VMWare Workstation Pro"; Id = "VMware.WorkstationPro"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Voidtools Everything"; Id = "voidtools.Everything.Lite"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "VSCodium"; Id = "VSCodium.VSCodium"; Interactive = $False; IgnoreHash = $False }
-    @{ Name = "WinDirStat"; Id = "WinDirStat.WinDirStat"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Windows PowerToys"; Id = "Microsoft.PowerToys"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Windows Terminal"; Id = "Microsoft.WindowsTerminal"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "WizTree"; Id = "AntibodySoftware.WizTree"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Yubico Authenticator"; Id = "Yubico.Authenticator"; Interactive = $False; IgnoreHash = $False }
 )
 
