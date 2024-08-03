@@ -10,7 +10,7 @@
     "editor.showLineStatus": true,
     "editor.showTabs": true,
     "git.revert.confirm": true,
-    "keymap": "pc-ij",
+    "keymap": "intellij",
     "launchTerminalOnOpen": true,
     "showShortcuts": true,
     "terminal.fontFamily": "JetBrains Mono",
