@@ -86,6 +86,11 @@ Param (
     }
     "WindowsTerminal" = @{
         "Main" = "$( $pwd.Path )/terminals/windows-terminal/settings.json"
+        "Windows" = "$( $env:LocalAppData )\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
+        "Linux" = "NOT_APPLICABLE"
+    }
+    "WindowsTerminalPreview" = @{
+        "Main" = "$( $pwd.Path )/terminals/windows-terminal/settings.json"
         "Windows" = "$( $env:LocalAppData )\\Packages\\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\\LocalState\\settings.json"
         "Linux" = "NOT_APPLICABLE"
     }
