@@ -1,8 +1,16 @@
 version="9"
 logging="yes"
+
+name="Test"
+enabled="no"
+type="17"
+action="Move to folder"
+actionValue="imap://ciaran.bent%40gmail.com@imap.gmail.com/INBOX"
+condition="AND (subject,contains,)"
+
 name="Music Releases"
 enabled="yes"
 type="17"
 action="Move to folder"
 actionValue="imap://ciaran.bent%40gmail.com@imap.gmail.com/Music/New Release"
-condition="AND (from,is,noreply@bandcamp.com) AND ((subject,contains,release) OR (subject,contains,releases) OR (subject,contains,New from))"
+condition="AND (from,is,noreply@bandcamp.com) AND ((subject,contains,release) OR (subject,contains,releases) OR (subject,contains,New from)"

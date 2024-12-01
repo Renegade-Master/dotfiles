@@ -79,6 +79,11 @@ Param (
         "Windows" = "$( $env:USERPROFILE )\\.vimrc"
         "Linux" = "$( $env:HOME )/.vimrc"
     }
+    "VS Codium" = @{
+        "Main" = "$( $pwd.Path )/editors/vscodium/settings.json"
+        "Windows" = "$( $env:AppData )\\VSCodium\\User\\settings.json"
+        "Linux" = "$( $env:HOME )/.config/VSCodium/User/settings.json"
+    }
     "WindowsTerminal" = @{
         "Main" = "$( $pwd.Path )/terminals/windows-terminal/settings.json"
         "Windows" = "$( $env:LocalAppData )\\Packages\\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\\LocalState\\settings.json"
