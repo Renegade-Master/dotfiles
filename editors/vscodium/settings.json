@@ -1,5 +1,8 @@
 {
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "editor.renderWhitespace": "all",
+    "files.trimTrailingWhitespace": true,
+    "editor.experimentalWhitespaceRendering": "font",
 }
