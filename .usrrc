@@ -4,6 +4,8 @@
 autoload -U compinit; compinit
 
 ## System Overrides ##
+export LC_ALL=en_IE.UTF-8
+
 # Select default editor
 export EDITOR="$(which nvim || which vim || which vi)"
 export PATH="$HOME/.local/bin:$PATH"
