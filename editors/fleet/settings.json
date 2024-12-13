@@ -16,8 +16,16 @@
     "terminal.fontFamily": "JetBrains Mono",
     "terminal.profiles": [
         {
+            "name": "ZSH",
+            "program": "zsh"
+        },
+        {
             "name": "PowerShell 7",
             "program": "pwsh"
+        },
+        {
+            "name": "Nu Shell",
+            "program": "nu"
         }
     ],
     "theme": "sync-with-os",
