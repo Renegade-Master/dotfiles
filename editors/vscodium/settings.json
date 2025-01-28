@@ -1,8 +1,36 @@
 {
+    "editor.experimentalWhitespaceRendering": "font",
+    "editor.renderWhitespace": "all",
+    "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "files.autoSave": "onFocusChange",
-    "editor.renderWhitespace": "all",
     "files.trimTrailingWhitespace": true,
-    "editor.experimentalWhitespaceRendering": "font",
+    "terminal.integrated.defaultProfile.windows": "Powershell 7",
+    "terminal.integrated.enableImages": true,
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "terminal.integrated.fontLigatures": true,
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "args": [],
+            "icon": "terminal-cmd",
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ]
+        },
+        "PowerShell": {
+            "icon": "terminal-powershell",
+            "source": "PowerShell"
+        },
+        "Powershell 7": {
+            "path": [
+                "pwsh.exe",
+                "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+            ]
+        }
+    },
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.suggest.enabled": true,
+    "terminal.integrated.tabs.title": "${local} ${process}"
 }

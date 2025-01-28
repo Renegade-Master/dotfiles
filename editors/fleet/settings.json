@@ -28,7 +28,7 @@
             "program": "nu"
         }
     ],
-    "theme": "sync-with-os",
+    "theme": "dark",
     "trimTrailingSpacesOnSave": true,
     "plugins": [
         {
