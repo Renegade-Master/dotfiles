@@ -56,6 +56,7 @@ Param ()
     @{ Name = "Proton Mail Bridge"; Id = "ProtonTechnologies.ProtonMailBridge"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "qBittorrent"; Id = "qBittorrent.qBittorrent"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "R2ModMan"; Id = "ebkr.r2modman"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "scrcpy"; Id = "Genymobile.scrcpy"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Steam"; Id = "Valve.Steam"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Sysinternals Suite"; Id = "9P7KNL5RWT25"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Thunderbird.Beta"; Id = "Mozilla.Thunderbird.Beta"; Interactive = $False; IgnoreHash = $False }
