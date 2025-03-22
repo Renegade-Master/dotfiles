@@ -30,6 +30,7 @@ Param ()
     @{ Name = "Explorer Patcher [Pre-Release]"; Id = "valinet.ExplorerPatcher.Prerelease"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Firefox Developer Edition"; Id = "Mozilla.Firefox.DeveloperEdition"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "foobar2000"; Id = "PeterPawlowski.foobar2000"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "Fort Firewall"; Id = "NodirTemirkhodjaev.FortFirewall"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Foxit Reader"; Id = "Foxit.FoxitReader"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "FxSound"; Id = "FxSound.FxSound"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Git [Minimal]"; Id = "Git.MinGit"; Interactive = $False; IgnoreHash = $False }
