@@ -17,6 +17,7 @@ Param ()
 [ Array ]$Applications = @(
     @{ Name = "7-Zip"; Id = "7zip.7zip"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "BTOP 4 Win"; Id = "aristocratos.btop4win"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "Bulk Crap Uninstaller"; Id = "Klocman.BulkCrapUninstaller"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Discord [Canary]"; Id = "Discord.Discord.Canary"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Discord [PTB]"; Id = "Discord.Discord.PTB"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "DisplayFusion"; Id = "BinaryFortress.DisplayFusion"; Interactive = $False; IgnoreHash = $False }
@@ -40,6 +41,7 @@ Param ()
     @{ Name = "JetBrains Toolbox"; Id = "JetBrains.Toolbox"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "JQ"; Id = "jqlang.jq"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "KeePassXC"; Id = "KeePassXCTeam.KeePassXC"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "Keyviz"; Id = "mulaRahul.Keyviz"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Link Shell Extension"; Id = "HermannSchinagl.LinkShellExtension"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Microsoft Edge Developer Edition"; Id = "Microsoft.Edge.Dev"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Microsoft PowerShell 7"; Id = "Microsoft.PowerShell"; Interactive = $False; IgnoreHash = $False }
@@ -57,6 +59,7 @@ Param ()
     @{ Name = "Steam"; Id = "Valve.Steam"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Sysinternals Suite"; Id = "9P7KNL5RWT25"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Thunderbird.Beta"; Id = "Mozilla.Thunderbird.Beta"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "Twinkle Tray"; Id = "xanderfrangos.twinkletray"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Ubisoft Connect"; Id = "Ubisoft.Connect"; Interactive = $False; IgnoreHash = $True }
     @{ Name = "UniGetUI"; Id = "SomePythonThings.WingetUIStore"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "VMWare Workstation Pro"; Id = "VMware.WorkstationPro"; Interactive = $False; IgnoreHash = $False }
