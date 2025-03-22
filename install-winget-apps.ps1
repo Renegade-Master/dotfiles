@@ -31,6 +31,7 @@ Param ()
     @{ Name = "Firefox Developer Edition"; Id = "Mozilla.Firefox.DeveloperEdition"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "foobar2000"; Id = "PeterPawlowski.foobar2000"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Foxit Reader"; Id = "Foxit.FoxitReader"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "FxSound"; Id = "FxSound.FxSound"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Git [Minimal]"; Id = "Git.MinGit"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "GitHub CLI"; Id = "GitHub.cli"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "GnuPG Gpg4win"; Id = "GnuPG.Gpg4win"; Interactive = $True; IgnoreHash = $False }
@@ -82,7 +83,7 @@ Function Test-AppInstalled {
     )
 
     $listApp = winget list --exact -q $AppName
-    If (![String]::Join("", $listApp).Contains($AppName)) {
+    If ([String]::Join("", $listApp).Contains($AppName)) {
         Return $True
     } Else {
         Return $False
@@ -112,11 +113,11 @@ Function Install-Applications {
 
         $Flags = $stringBuilder.ToString()
 
-        If (Test-AppInstalled -AppName $App.Id) {
+        If (-Not (Test-AppInstalled -AppName $App.Id)) {
             Write-host "Installing: $($App.Name)"
             #Write-Host "Running: winget install $($Flags) --id=$($App.Id)"
 
-            winget install $($Flags) --id=$($App.Id)
+            winget install $($Flags) --silent --id=$($App.Id)
         } Else {
             Write-host "Skipping Install of $($App.Name) as it is already installed"
             #Write-Host "Would have Run: winget install $($Flags) --id=$($App.Id)"
@@ -127,7 +128,7 @@ Function Install-Applications {
 
 Function Install-WinGet {
     $ProgressPreference = "silentlyContinue"
-    $DownloadLocation = "$( $env:LocalAppData )\\Temp"
+    $DownloadLocation = "$env:TEMP"
     $LatestWingetMsixBundleUri = $(Invoke-RestMethod https://api.github.com/repos/microsoft/winget-cli/releases/latest).assets.browser_download_url | Where-Object {$_.EndsWith(".msixbundle")}
     $LatestWingetMsixBundle = $LatestWingetMsixBundleUri.Split("/")[-1]
 
