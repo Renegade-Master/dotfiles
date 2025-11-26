@@ -50,6 +50,7 @@ Param ()
     @{ Name = "MSI Afterburner"; Id = "Guru3D.Afterburner"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Neovim"; Id = "Neovim.Neovim"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "NexusMods Vortex"; Id = "NexusMods.Vortex"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "NuShell"; Id = "Nushell.Nushell"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Nvidia GeForce Experience"; Id = "Nvidia.GeForceExperience"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "OhMyPosh"; Id = "JanDeDobbeleer.OhMyPosh"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Ookla Speedtest CLI"; Id = "Ookla.Speedtest.CLI"; Interactive = $False; IgnoreHash = $False }
