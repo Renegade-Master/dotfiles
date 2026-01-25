@@ -22,4 +22,9 @@
     "light": "Ayu Light",
     "dark": "Ayu Dark",
   },
+  "terminal": {
+    "shell": {
+      "program": "nu",
+    },
+  },
 }
