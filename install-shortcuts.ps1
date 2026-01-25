@@ -99,6 +99,11 @@ Param (
         "Windows" = "$( $env:LocalAppData )\\Packages\\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\\LocalState\\settings.json"
         "Linux" = "NOT_APPLICABLE"
     }
+    "Zed" = @{
+        "Main" = "$( $pwd.Path )/editors/zed/settings.json"
+        "Windows" = "$( $env:AppData )\\Zed\\settings.json"
+        "Linux" = "$( $env:HOME )/.config/Zed/settings.json"
+    }
 }
 
 
