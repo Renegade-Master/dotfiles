@@ -1,4 +1,5 @@
 oh-my-posh init nu
 
-alias ll = ls -ladm
+alias ll = ls -lam
+alias lll = ls -ladm
 
