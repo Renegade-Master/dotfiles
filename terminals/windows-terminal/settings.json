@@ -97,7 +97,7 @@
                 "builtinGlyphs": true,
                 "cellHeight": "1.2",
                 "colorGlyphs": true,
-                "face": "JetBrainsMono Nerd Font Mono",
+                "face": "JetBrainsMono Nerd Font, JetBrainsMono Nerd Font Mono, JetBrains Mono",
                 "features": {},
                 "size": 11,
                 "weight": "normal"
