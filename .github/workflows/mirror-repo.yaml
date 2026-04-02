@@ -1,0 +1,17 @@
+name: Push to Mirror Repos
+run-name: ${{ github.actor }}
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - name: List files in the repository
+        run: |
+          git log
