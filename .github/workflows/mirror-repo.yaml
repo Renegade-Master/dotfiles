@@ -7,11 +7,12 @@ on:
       - main
       - master
 jobs:
-  Explore-GitHub-Actions:
+  push-to-other-repos:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v5
-      - name: List files in the repository
+      - name:
         run: |
-          git log
+          git remote add gitlab https://gitlab.com/Renegade-Master/dotfiles.git
+          git push gitlab master
