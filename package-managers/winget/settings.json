@@ -15,6 +15,7 @@
         "disable": false
     },
     "visual": {
-        "progressBar": "rainbow"
+        "progressBar": "rainbow",
+        "enableSixels": true
     }
 }
