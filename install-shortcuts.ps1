@@ -66,7 +66,7 @@ Param (
     }
     "Tmux" = @{
         "Main" = "$( $pwd.Path )/.tmux.conf"
-        "Windows" = "NOT_APPLICABLE"
+        "Windows" = "$( $env:USERPROFILE )\\.tmux.conf"
         "Linux" = "$( $env:HOME )/.tmux.conf"
     }
     "UserConfig" = @{
