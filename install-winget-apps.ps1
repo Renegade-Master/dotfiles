@@ -37,7 +37,8 @@ Param ()
     @{ Name = "GitHub CLI"; Id = "GitHub.cli"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "GnuPG Gpg4win"; Id = "GnuPG.Gpg4win"; Interactive = $True; IgnoreHash = $False }
     @{ Name = "GOG Galaxy"; Id = "GOG.Galaxy"; Interactive = $False; IgnoreHash = $False }
-    @{ Name = "Google.Drive"; Id = "Google.Drive"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "Google Drive"; Id = "Google.Drive"; Interactive = $False; IgnoreHash = $False }    
+    @{ Name = "Heroic Games Launcher"; Id = "HeroicGamesLauncher.HeroicGamesLauncher"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Jellyfin Media Player"; Id = "Jellyfin.JellyfinMediaPlayer"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "JetBrains Mono Nerd Font"; Id = "DEVCOM.JetBrainsMonoNerdFont"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "JetBrains Toolbox"; Id = "JetBrains.Toolbox"; Interactive = $False; IgnoreHash = $False }
@@ -64,7 +65,7 @@ Param ()
     @{ Name = "scrcpy"; Id = "Genymobile.scrcpy"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Steam"; Id = "Valve.Steam"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Sysinternals Suite"; Id = "9P7KNL5RWT25"; Interactive = $False; IgnoreHash = $False }
-    @{ Name = "Thunderbird.Beta"; Id = "Mozilla.Thunderbird.Beta"; Interactive = $False; IgnoreHash = $False }
+    @{ Name = "Thunderbird [Beta]"; Id = "Mozilla.Thunderbird.Beta"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Twinkle Tray"; Id = "xanderfrangos.twinkletray"; Interactive = $False; IgnoreHash = $False }
     @{ Name = "Ubisoft Connect"; Id = "Ubisoft.Connect"; Interactive = $False; IgnoreHash = $True }
     @{ Name = "UniGetUI"; Id = "SomePythonThings.WingetUIStore"; Interactive = $False; IgnoreHash = $False }
