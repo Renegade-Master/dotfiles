@@ -1,8 +1,5 @@
 ### User Configuration File ###
 
-## Tools Auto-Complete ##
-autoload -U compinit; compinit
-
 ## System Overrides ##
 export LC_ALL=en_IE.UTF-8
 
